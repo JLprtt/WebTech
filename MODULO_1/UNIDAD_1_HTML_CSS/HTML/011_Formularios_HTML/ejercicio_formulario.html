@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        h2, h3, label, legend {
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <h2>Rellena el formulario</h2>
+
+    <form action="/action_page.php">
+        <fieldset>
+            <legend>Información personal</legend><br>
+            <label for="nombreUsuario">Nombre:</label><br>
+            <input type="text" id="nombreUsuario" name="nombreUsuario" required><br>
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" required><br>
+            <label for="fechaNac">Fecha de nacimiento:</label><br>
+            <input type="date" id="fechaNac" name="fechaNac" required><br>
+            <label for="gen">Género:</label><br>
+            <label for="masc">Masculino</label>
+            <input type="radio" id="masc"  name="gen"><br>
+            <label for="fem">Femenino</label>
+            <input type="radio" id="fem" name="gen"><br>
+            <label for="gen">Otro</label>
+            <input type="radio" id="otro" name="gen"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Información de contacto</legend><br>
+            <label for="correoE">Email:</label><br> 
+            <input type="email" id="correoE" name="correoE" required><br>
+            <label for="telefono">Teléfono:</label><br>
+            <input type="tel" id="telef" name="direccion" required><br>
+            <label for="direccion">Dirección:</label><br>
+            <input type="text" id="direccion" name="direccion" required><br>
+        </fieldset>
+        <br><input type="submit" value="Submit">
+    </form> 
+
+</body>
+</html>
