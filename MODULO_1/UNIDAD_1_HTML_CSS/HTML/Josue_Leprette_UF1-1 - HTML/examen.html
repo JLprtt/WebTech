@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        td {
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <form>
+            <tr>
+                <td><label for="nombreUsuario">Nombre:</label><br></td>
+                <td><input type="text" id="nombreUsuario" name="nombreUsuario"></td>
+            </tr>
+            <tr>
+                <td><label for="correoE">Email:</label></td>
+                <td><input type="email" id="correoE" name="correoE"></td>
+            </tr>
+            <tr>
+                <td><label for="fechaNac">Fecha de nacimiento:</label></td>
+                <td><input type="date" id="fechaNac" name="fechaNac"></td>
+            </tr>
+            <tr>
+                <td><label for="curso"> Elige uno o varios cursos:</label></td>
+                <td>
+                    <input type="checkbox" id="curso1" name="curso" value="html">
+                    <label for="curso1"> HTML</label>
+                    <input type="checkbox" id="curso2" name="curso" value="css">
+                    <label for="curso2"> CSS</label>
+                    <input type="checkbox" id="curso3" name="curso" value="javascript">
+                    <label for="curso3"> JavaScript</label>
+                    <input type="checkbox" id="curso4" name="curso" value="c++">
+                    <label for="curso4"> C++</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="estudios">Nivel de estudios:</label></td>
+                <td>
+                    <select id="estudios" name="estudios">
+                        <option value="basico">Básico</option>
+                        <option value="medio">Medio</option>
+                        <option value="superior">Superior</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="numero">Nivel de inglés:</label></td>
+                <td><input type="number" id="numero" min="0" max="10"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Enviar"></td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>
