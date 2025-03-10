@@ -1,0 +1,31 @@
+body {
+    background-color: black;
+}
+
+button::first-letter {
+    color: red;
+}
+
+button {
+    color: rgb(241, 240, 240);
+    margin: 150px;
+    height: 40px;
+    width: auto;
+    border: double;
+    border-color: black;
+}
+
+button:hover {
+    background-color: black;
+    border: double;
+}
+
+button:hover::before {
+    color: rgb(108, 24, 24);
+    content: '¡Haz click! ';
+}
+
+button:focus::after {
+    content: ' Ya has visitado este recurso';
+    color: grey;
+}

@@ -1,0 +1,35 @@
+.cta-container {
+    background-image: url(elements/ds-lycoris-radiata.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 60px;
+    
+}
+
+#titulo {
+    color: rgb(216, 159, 159);
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgb(252, 1, 1);
+}
+
+.cta-text {
+    color: rgb(255, 229, 229);
+
+}
+
+.cta-button {
+    background-color: #b26262;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 200px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+body {
+    background-color: black;
+}
