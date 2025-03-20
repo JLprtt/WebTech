@@ -57,8 +57,9 @@ ul.menu>li {
     border-bottom: 1px solid #62605b;
 }
 
-ul.menu>li:last-child {
+ul.menu>li:last-child::before {
     border-bottom: none;
+    content: "" !important;
 }
 
 /* selector los enlaces del menu vertical*/
@@ -80,6 +81,6 @@ ul.menu li a:hover {
     background-color: #f7c8c8;
 }
 
-.menu > li > a::before {
+.menu  li ::before {
     content: "🩸 ";
 }

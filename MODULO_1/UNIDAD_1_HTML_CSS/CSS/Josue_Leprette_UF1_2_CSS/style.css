@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:opsz,wght@6..96,700&family=Castoro+Titling&family=Cinzel+Decorative&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Cormorant+SC:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Jacques+Francois+Shadow&family=New+Rocker&family=Playfair+Display+SC&display=swap');
+
+body {
+    color: #d73037;
+    height: 100vh;
+    margin: 0px;
+}
+
+/*Index */
+header {
+    background-color: rgb(17, 17, 17);
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 3vh;
+}
+
+h1 {
+    font-family: Cormorant SC;
+    display: inline;
+}
+
+.logo {
+    width: 10vh;
+}
+
+nav {
+    background-color: black;
+    overflow: hidden;
+}
+nav a {
+    width: 20vh;
+    text-decoration: none;
+    text-align: center;
+    color: #d73037;
+    background-color: black;
+    padding: 10px 5px;
+    border-right: 1px solid #993333;
+    display: block;
+    float: left;
+    font-family: Cormorant Garamond;
+    font-weight: 700;
+}
+
+nav a:hover {
+    background-color: #d73037;
+    color: black;
+}
+
+main {
+    overflow: auto;
+    height: 90vh;
+    background-image: url(elements/ds-lycoris-radiata.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main h2 {
+    margin: 2vh;
+    text-shadow: 2px 2px 10px rgb(252, 1, 1);
+}
+
+@media (max-width: 431px) {
+    h2 {
+        font-size: large;
+    }
+  }
+
+main p {
+    margin: 2vh;
+    text-shadow: 1px 1px 1px rgb(252, 1, 1);
+    color: black;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+    height: 5vh;
+}
+
+
+footer span {
+    font-size: small;
+}
+
+h4 {
+    font-weight: 200;
+}
+
+/* Formulario*/
+fieldset {
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    color: #d73038;
+    font-weight: bold;
+    border: 3px solid #d7303896;
+    border-style: double;
+    margin: 1vh;
+    font-family: Crimson Text;
+}
+
+input, select {
+    margin-top: 5px;
+    border-radius: 3px;
+    background-color: black;
+    color: #fda08f;
+
+}
+
+.submit {
+    width: 7em;
+    margin: 1vh 0 5vh 20px;
+}

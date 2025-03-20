@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="elements/logo.png">
+        <h1>Mi Sitio Web</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="contact.html">Contacto</a>
+    </nav>
+    <main>
+        <form action="index.html">
+            <fieldset>
+                <legend>Información personal</legend><br>
+                <label for="nombreUsuario">Identidad:</label><br>
+                <input type="text" id="nombreUsuario" name="nombreUsuario" required><br><br>
+                <label for="fechaNac">Fecha de llamada:</label><br>
+                <input type="date" id="fechaNac" name="fechaNac" required><br><br>
+                <label for="sangre">Grupo sanguíneo:</label><br>
+                <select id="sangre" name="sangre" required>
+                    <option value="escarlata">Escarlata</option>
+                    <option value="bermellon">Bermellón</option>
+                    <option value="carmesi">Carmesí</option>
+                    <option value="rubi">Rubí</option>
+                </select>
+                
+            </fieldset>
+            <fieldset>
+                <legend>Información de contacto</legend><br>
+                <label for="correoE">Email:</label><br> 
+                <input type="email" id="correoE" name="correoE" required><br><br>
+                <label for="telefono">Teléfono:</label><br>
+                <input type="tel" id="telef" name="direccion" required><br><br>
+                <label for="direccion">Dirección:</label><br>
+                <input type="text" id="direccion" name="direccion" required><br>
+            </fieldset>
+            <br><input type="submit" value="Enviar" class="submit">
+        </form>
+    </main>
+    <footer>
+        <h4><span id="copyright">&copy;</span> 2024 - Pie de página</h4>
+     </footer>
+</body>
+</html>

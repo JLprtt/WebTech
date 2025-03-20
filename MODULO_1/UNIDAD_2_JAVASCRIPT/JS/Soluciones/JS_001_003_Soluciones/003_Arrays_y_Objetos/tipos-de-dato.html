@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de datos.</title>
+</head>
+
+<body>
+    <h1>9056745563456739</h1>
+    <script>
+        let numeroEntero = "5";
+        let numeroString = 5;
+        let numeroString2 = 5;
+        let numeroString3 = false;
+        let numeroString4 = null;
+        let numeroString5 = undefined;
+        console.log("Número Entero:", numeroEntero + numeroString + numeroString2);
+
+        let division = 10 / 3;
+        let floateada = division.toFixed(2);
+        document.write(division.toFixed(2));
+
+
+        let numeroDecimal = 3.14;
+        let numeroNegativo = -10;
+        console.log("Número " + numeroEntero + ":", typeof numeroEntero);
+        console.log("Número " + numeroDecimal + ":", typeof numeroDecimal);
+        console.log("Número " + numeroNegativo + ":", typeof numeroNegativo);
+        console.log("Número " + numeroString3 + ":", typeof  numeroString3);
+        console.log("Número " + numeroString4 + ":", typeof  numeroString4);
+        console.log("Número " + numeroString5 + ":", typeof  numeroString5);
+
+        let numero = 9056745563456739;
+        document.write();
+        function escribirNumero(num) {
+            
+            document.write(`
+                <h1> ${num} </h1>
+            `);
+        }
+        escribirNumero(numero);
+
+
+        let alumno = { nombre: 'Andrea', edad: 30 } // objeto
+        let frutas = ['manzana', 'naranja', 'plátano'] // Array
+        let alumnos = [
+            { nombre: 'Andrea', edad: 30 },
+            { nombre: 'Juan', edad: 25 },
+            { nombre: 'María', edad: 28 }
+        ];
+        
+        let nombreAlumno = alumno.nombre;
+      
+        let edadAlumno = alumno.edad;
+        let html = `
+            <h1> Nombre del alumno: ${nombreAlumno} </h1>
+            <h2> Edad del alumno: ${edadAlumno} </h2>
+        `;
+        document.write(html);
+
+        let fruta1 = frutas[0];
+        let fruta2 = frutas[1];
+        let fruta3 = frutas[2];
+        let htmlFrutas = `
+            <h1> Fruta 1: ${fruta1} </h1>
+            <h2> Fruta 2: ${fruta2} </h2>
+            <h3> Fruta 3: ${fruta3} </h3>
+        `;
+        document.write(htmlFrutas);
+        // Del jSon Alumnos
+        let nombreJuan = alumnos[1].nombre;
+        let edadJuan = alumnos[1].edad;
+
+        let hmtmlJuan = `
+            <h1> Nombre del alumno: ${nombreJuan} </h1>
+            <h2> Edad del alumno: ${edadJuan} </h2>
+        `;
+        document.write(hmtmlJuan);
+    </script>
+</body>
+
+</html>
