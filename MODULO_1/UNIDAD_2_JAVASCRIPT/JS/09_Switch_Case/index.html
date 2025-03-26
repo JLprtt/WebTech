@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        let numIntro = parseInt(prompt("Introduce un número del 1 al 12"));
+        let numMes = numIntro - 1;
+
+        document.write(`El número introducido es ${meses[numMes]}`);
+
+        switch (numIntro) {
+            case 1:
+                alert("Enero");
+                break;
+            case 2:
+                alert("Febrero");
+                break;
+            case 3:
+                alert("Marzo");
+                break;
+            case 4:
+                alert("Abril");
+                break;
+            case 5:
+                alert("Mayo");
+                break;
+            case 6:
+                alert("Junio");
+                break;
+            case 7:
+                alert("Julio");
+                break;
+            case 8:
+                alert("Agosto");
+                break;
+            case 9:
+                alert("Septiembre");
+                break;
+            case 10:
+                alert("Octubre");
+                break;
+            case 11:
+                alert("Noviembre");
+                break;
+            case 12:
+                alert("Diciembre");
+                break;
+            default:
+                break;
+        }
+    </script>
+</body>
+</html>

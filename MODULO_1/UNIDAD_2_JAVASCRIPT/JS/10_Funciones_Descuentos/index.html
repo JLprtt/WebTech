@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descuentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="result"></h1>
+    <form action="" id="form">
+        <fieldset>
+            <label for="price">Introduzca el precio:</label><br>
+            <input type="number" id="price"><br><br>
+            <label for="discount">Especifique su descuento:</label><br>
+            <input type="number" id="discount"><br><br>
+            <input type="submit" value="Enviar" id="submit">
+        </fieldset>
+    </form>
+    <script>
+        const
+            form = document.querySelector("#form"),
+            price = document.querySelector("#price"),
+            discount = document.querySelector("#discount");
+
+        function calculateDiscount(price, discount) {
+            //price * discount/100-1 
+            let aplyDiscount = 1 - discount / 100;
+            let finalPrice = price * aplyDiscount;
+            return finalPrice;
+        }
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let priceValue = parseFloat(price.value),
+                discountValue = parseFloat(discount.value),
+                finalPrice = calculateDiscount(priceValue, discountValue);
+
+            console.log(priceValue, discountValue);
+            document.querySelector("#result").innerHTML = `El precio final del producto es ${finalPrice}`;
+        })
+    </script>
+</body>
+
+</html>

@@ -19,6 +19,6 @@ input {
     float:inline-start;
 }
 
-#button:hover {
+input[type="submit"]:hover {
     background-color: brown;
 }

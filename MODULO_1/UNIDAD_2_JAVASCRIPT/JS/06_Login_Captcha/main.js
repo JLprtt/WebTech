@@ -3,24 +3,24 @@ const secondNum = Math.floor(Math.random()*100)+1;
 
 const solution = firstNum + secondNum;
 
-var answer = document.querySelector("#captcha").value;
+document.querySelector("#operation").innerHTML = `${firstNum} + ${secondNum}`;
 
-let boton = document.querySelector("#button");
+let button = document.querySelector("#button");
 
-boton.addEventListener("click", function() {
-    var answer = document.querySelector("#captcha").value;
-    alert(answer);
-});
+//var campoAnswer = document.querySelector("#captcha");
+
+var answer
+
+button.onclick=function (){
+    answer = document.querySelector("#captcha").value;
+    /*if (solution == answer) {
+        window.location.href = 'logging.html';
+    } else if (isNaN(answer)){
+        alert("Debe introducir un número.");
+        window.location.reload();
+    } else {
+        alert("MrDestructoid Clap");
+        window.location.reload();}*/
+}
 
 console.log(answer)
-
-
-/*if (solution == answer) {
-    alert("Accediendo a su cuenta...");
-} else if (isNaN(answer)){
-    alert("Debe introducir un número.")
-    window.location.reload();
-} else {
-    alert("MrDestructoid Clap");
-    window.location.reload();
-}*/
