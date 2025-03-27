@@ -1,10 +1,13 @@
 body{
-    background-color: black;
+    background-color: #0e0e0e;
     color: brown;
 }
 
 fieldset {
     margin: 20% 1%;
+    border-radius: 10px;
+    border-style: double;
+    border-color: rgb(144, 0, 0);
 }
 
 p {
@@ -17,6 +20,7 @@ p {
 input {
     margin-top: 5px;
     float:inline-start;
+    border-radius: 8px;
 }
 
 input[type="submit"]:hover {

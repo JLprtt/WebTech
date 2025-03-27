@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mensaje"></div>
+
+    <script>
+        let persona = {
+            nombre: "Juan", apellido: "Nadie",
+            edad: 50,
+            ojosColor:
+            {
+                izquierdo: "Verde",
+                derecho: "Azul"
+            },
+            altura: 1.80
+        };
+
+        let mensaje = `
+        Hola ${persona.nombre} ${persona.apellido}, tu edad es de 
+        ${persona.edad} años y mides ${persona.altura} m. 
+        Eres como David Bowie porque tienes el ojo izquierdo ${persona.ojosColor.izquierdo} y el derecho ${persona.ojosColor.derecho}. Bienvenido!`;
+
+        let contenedor = document.querySelector('#mensaje');
+        
+        contenedor.innerHTML = mensaje;
+        contenedor.innerHTML += '<hr>';
+        contenedor.innerHTML += '<ul>';
+            for (propiedad in persona) {
+                if (propiedad == 'ojosColor') {
+                    contenedor.innerHTML += `<li> Color de ojos:</li>`;
+                    for (ojo in persona.ojosColor) {
+                        contenedor.innerHTML += `<ul><li>
+                                                    ${ojo}: ${persona[propiedad][ojo]}
+                                                </li></ul>`
+                    }
+                } else {
+                    contenedor.innerHTML += `<li>${propiedad}: ${persona[propiedad]}</li>`;
+                }
+            }
+        contenedor.innerHTML += '</ul>';
+
+        persona.nombre = 'Mario';
+        persona.ojosColor.izquierdo = 'Rojo';
+
+        contenedor.innerHTML += `<hr>
+        Hola ${persona.nombre} ${persona.apellido}, tu edad es de 
+        ${persona.edad} años y mides ${persona.altura} m. 
+        Eres como David Bowie porque tienes el ojo izquierdo ${persona.ojosColor.izquierdo} y el derecho ${persona.ojosColor.derecho}. Bienvenido!`;
+    </script>
+</body>
+
+</html>
