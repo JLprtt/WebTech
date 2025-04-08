@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+        fieldset {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <br><br>
+            <label for="tel">Teléfono:</label>
+            <input type="tel" name="tel" id="tel">
+            <br><br>
+            <label for="date">Fecha de nacimiento:</label>
+            <input type="date" name="date" id="date">
+        </fieldset>
+        <br>
+        <button>Enviar</button>
+    </form>
+    
+    <script>
+        const form = document.querySelector("form");
+        const email = document.querySelector("email");
+        const tel = document.querySelector("tel");
+        const date = document.querySelector("date");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const telefonoRegex = /^[0-9]{9}$/;
+        
+        form.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            const emailValue = document.querySelector("email").value;
+            const telValue = document.querySelector("tel").value;
+            const dateValue = document.querySelector("date").value;
+            
+            if (!telefonoRegex.test(tel)) {
+                alert('Teléfono no es válido. Debe contener 9 dígitos.');
+            };
+            if (!emailRegex.test(email)) {
+                alert('Email no válido.');
+            };
+        });
+    </script>
+</body>
+</html>

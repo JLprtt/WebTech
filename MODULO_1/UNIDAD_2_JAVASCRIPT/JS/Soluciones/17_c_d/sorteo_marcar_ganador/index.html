@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteo, marcar el ganador dentro de la lista de ganadores.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        li {
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        li:hover {
+            background-color: #f0f0f0;
+        }
+
+        #sortear, input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #sortear:hover {
+            background-color: #45a049;
+        }
+        input{
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50vw;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <form action="#">
+            <h2>Añadir concursantes</h2>
+            <input type="text" name="concursante" id="concursante" required><br>
+            <input type="submit" value="Añadir">
+        </form>
+        <h2>Lista de concursantes</h2>
+        <ul id="listaConcursantes">
+            <!-- Aquí se añadirán los concursantes -->
+        </ul>
+        <button id="sortear">Sortear</button>
+    </div>
+    <script>
+        const form = document.querySelector("form");
+        const concursanteInput = document.querySelector("#concursante");
+        const listaConcursantes = document.querySelector("#listaConcursantes");
+        const sortearButton = document.querySelector("#sortear");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Evita el envío del formulario
+            const concursante = concursanteInput.value.trim();
+            concursanteInput.value = ""; // Limpia el campo de entrada
+            listaConcursantes.innerHTML += `<li>${concursante}</li>`;
+        });
+
+        sortearButton.addEventListener("click", function () {
+            // Limpiar el color de fondo de todos los concursantes
+            let concursantes = document.querySelectorAll('li');
+            let numeroGanador = Math.floor(Math.random() * concursantes.length);
+            concursantes[numeroGanador].style.backgroundColor = "yellow";
+        });
+    </script>
+
+</body>
+
+</html>

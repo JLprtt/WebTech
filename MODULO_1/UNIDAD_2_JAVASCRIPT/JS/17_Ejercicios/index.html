@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        #miDiv {
+            background-color: red;
+            width: 250px;
+            height: 250px;
+            border: 1px solid black;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #boton {
+            margin-top: 15px;
+            width: 250px;
+            height: 30px;
+            background-color: brown;
+            border: 1px solid black;
+        }
+
+        /*#boton:hover {
+            color: brown;
+            background-color: black;
+            border: 1px solid brown;
+        }*/
+
+        #aColorAleatorio {
+            margin-top: 15px;
+            width: 250px;
+            height: 25px;
+            background-color: black;
+            color: red;
+            border: 1px solid #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="miDiv"></div>
+    <button id="boton">Cambia el color</button>
+    <button id="aColorAleatorio"> Cambia a un color aleatorio</button>
+
+    <script>
+        const miDiv = document.querySelector("#miDiv");
+        const boton = document.querySelector("#boton");
+        const aColorAleatorio = document.querySelector("#aColorAleatorio");
+
+        boton.addEventListener("click", function () {
+            if (boton.style.backgroundColor !== "red") {
+                miDiv.style.backgroundColor = "brown";
+                boton.style.backgroundColor = "red";
+                miDiv.innerHTML = ``;
+            } else if (boton.style.backgroundColor !== "brown") {
+                miDiv.style.backgroundColor = "red";
+                boton.style.backgroundColor = "brown";
+                miDiv.innerHTML = ``;
+            }
+        });
+
+        aColorAleatorio.addEventListener('click', () => {
+            let randomColor = getRandomColor();
+            miDiv.style.backgroundColor = randomColor;
+            miDiv.innerHTML = `Color ${randomColor}`;
+        })
+
+        function getRandomColor() {
+            //Genera un color hexadecimal aleatorio
+            return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split y replace</title>
+    <style>
+        body, button {
+            background-color: black;
+            color: red;
+        }
+        button {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- Split -->
+    <h2>Escriba una frase:</h2>
+    <form action="">
+            <label for="frase"></label>
+            <textarea name="frase" id="frase"></textarea><br><br>
+            <button>Enviar</button>
+    </form>
+
+    <ul>
+
+    </ul>
+
+    <!-- Replace -->
+    <h3>Lycoris Raidata</h3>
+
+    <button onclick="pedir()">Remplazar</button>
+
+    <script>
+        
+        //Split
+        const form = document.querySelector("form")
+        const frase = document.querySelector("#frase")
+        const lista = document.querySelector("ul")
+        
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); //Evita el envío del formulario
+            const texto = frase.value;
+            const palabras = texto.split(" ");
+            const lista = document.querySelector("ul");
+            
+            lista.innerHTML = ""; //Limpia la lista antes de agregar nuevos elementos
+            
+            palabras.forEach(palabra => {
+                let elementoLista = document.createElement("li");
+                elementoLista.textContent = palabra;
+                lista.appendChild(elementoLista);
+                });
+            });
+
+        //Replace [Maquetarlo en el formulario, splitear los elementos del primer input con ',']
+        function pedir() {
+            let palabraReemplazar = prompt("¿Qué palabra quiere reemplazar?");
+            let palabraNueva = prompt("¿Por qué palabra quiere remplzarla?");
+            let hache3 = document.querySelector("h3");
+            
+            hache3.innerHTML = hache3.innerHTML.replace(palabraReemplazar, palabraNueva);
+        }
+    </script> 
+</body>
+</html>

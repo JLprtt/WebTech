@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteo</title>
+    <style>
+        body, button {
+            background-color: black;
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        /*form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }*/
+        button {
+            border: 1px solid red;
+            border-radius: 25px;
+        }
+        input {
+            border-radius: 20px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        .eliminar {
+            border-radius: 100px;
+        }
+        li {
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡¡¡Sorteo!!!</h1>
+
+    <form action="">
+        <label for="agregarParticipante">Introduzca el nombre de los participantes:</label>
+        <br>
+        <input type="text" id="agregarParticipante">
+        <br>
+        <button>Añadir participante</button>
+    </form>
+    
+    <ul>
+
+    </ul>
+
+    <button id="sortearBoton">¡Sortear!</button>
+    <script>
+    //HACER QUE TE PUEDAS MOVER ENTRE BOTONES CON LAS FLECHAS | SORTEAR CON EL ESPACIO | {randomizar las letras del teclado}
+        const form = document.querySelector("form");
+        const agregarParticipante = document.querySelector("#agregarParticipante");
+        const listaParticipantes = document.querySelector("ul");
+        let participantes = [];
+        const sortearBoton = document.querySelector("#sortearBoton")
+        let eliminar;
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); //Evita el envío del formulario
+            const participante = agregarParticipante.value.trim(); //qué es trim? xd
+            let eliminar = document.querySelectorAll(".eliminar")
+
+            participantes.push(participante);
+            listaParticipantes.innerHTML += `<li>${participante} <button class="eliminar">x</button></li>`;
+        });
+
+        sortearBoton.addEventListener("click", ()=> {
+            let numeroGanador = Math.floor(Math.random()*participantes.length);
+            document.querySelectorAll('li')[numeroGanador].style.backgroundColor = "red";
+            document.querySelectorAll('li')[numeroGanador].style.color = "black";
+        });
+
+        eliminar.addEventListener("click", function (e) {
+            participantes.pop();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos Fetch</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="contenedor"></div>
+    <script>
+        fetch("alumnos.json")
+            .then(res => { //res = result
+                if (!res.ok) throw new Error("No se pudo cargar el archivo JSON");
+                return res.json();
+            })
+            .then(data => {
+                const contenedor = document.getElementById("contenedor");
+                data.forEach(alumno => {
+                    const div = document.createElement("div");
+                    div.className = "alumno";
+                    div.innerHTML = `<strong>${alumno.nombre}</strong> - Edad: ${alumno.edad}, Curso: ${alumno.curso}`;
+                    contenedor.appendChild(div);
+                });
+            })
+            .catch(error => {
+                document.getElementById("contenedor").innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+            });
+
+    </script>
+</body>
+
+</html>

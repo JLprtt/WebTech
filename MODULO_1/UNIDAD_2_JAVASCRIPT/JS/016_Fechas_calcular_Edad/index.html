@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular fechas</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p id="edad"></p>
+    <script>
+        const fechaNacimiento = prompt("Introduce tu fecha de nacimiento (DD/MM/YYYY)");
+        let fechaObjeto = new Date(fechaNacimiento)
+
+        if (isNaN(fechaObjeto.getTime())) { //Comprobar si la fecha es válida
+            alert("Fecha no válida");
+            location.reload();
+        }
+
+        const fechaActual = new Date();
+        const anoActual = fechaActual.getFullYear(); //Obtener el año actual
+        const anoNacimiento = fechaObjeto.getFullYear(); //Obtener el ano de nacimiento
+        const mesActual = fechaActual.getMonth(); //Obtener el mes actual
+        const mesNacimiento = fechaObjeto.getMonth(); //Obtener el mes de nacimiento
+        const diaActual = fechaActual.getDate(); //Obtener el día actual
+        const diaNacimiento = fechaObjeto.getDate(); //Obtener el día de nacimiento
+        let edad = `${mesActual - mesNacimiento}`;
+
+        console.log(edad);
+    </script>
+</body>
+</html>

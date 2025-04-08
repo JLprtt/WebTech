@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas con adición y eliminación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        li {
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        li:hover {
+            background-color: #f0f0f0;
+        }
+
+        #sortear,
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #sortear:hover {
+            background-color: #45a049;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50vw;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .eliminar {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <form action="#">
+            <h2>Añadir tarea</h2>
+            <input type="text" name="tarea" id="tarea" required><br>
+            <input type="submit" value="Añadir">
+        </form>
+        <h2>Lista de tareas</h2>
+        <ul id="listatareas">
+            <!-- Aquí se añadirán los tareas -->
+        </ul>
+
+    </div>
+    <script>
+        const form = document.querySelector("form");
+        const tareaInput = document.querySelector("#tarea");
+        const listatareas = document.querySelector("#listatareas");
+
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Evita el envío del formulario
+            const tarea = tareaInput.value.trim();
+            tareaInput.value = ""; // Limpia el campo de entrada
+            listatareas.innerHTML += `
+                <li>
+                    ${tarea} 
+                    <button class="eliminar">X</button>
+                </li>     
+            `;
+        });
+        // Agregar evento de teclado para eliminar tareas
+        const botonEliminar = document.querySelectorAll(".eliminar");
+        botonEliminar.forEach(boton => {
+            boton.parentElement.remove();
+        })
+            
+    </script>
+             
+</body>
+
+</html>

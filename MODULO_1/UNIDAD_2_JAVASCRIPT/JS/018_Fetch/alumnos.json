@@ -1,0 +1,5 @@
+[
+    { "nombre": "Ana", "edad": 18, "curso": "1º DAW" },
+    { "nombre": "Pedro", "edad": 20, "curso": "2º DAM" },
+    { "nombre": "María", "edad": 19, "curso": "1º ASIR" }
+]

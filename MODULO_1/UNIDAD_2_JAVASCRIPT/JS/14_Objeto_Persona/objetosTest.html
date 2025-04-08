@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        class Persona { // los nombres de clases sí empiezan a menudo con mayúscula
+           constructor(nombre, edad) { // Método que se aplica en la creación
+               this.nombre = nombre; // Añadimos los atributos al objeto
+               this.edad = edad;
+           }
+           cambio(nuevoNombre, nuevaEdad) { // Setter
+               this.nombre = nuevoNombre;
+               this.edad = nuevaEdad
+           }
+       }
+       // Creamos objetos partiendo de la plantilla (clase) // persona1.edad();
+       const Persona1 = new Persona("Juan", 50);
+       console.log(Persona1); // get
+       const Persona2 = new Persona("Pepe", 30);
+       Persona1.cambio("Mario", 27) // setter
+         
+       console.log(Persona1); // get
+       console.log(Persona2) // get
+    </script>
+</body>
+</html>

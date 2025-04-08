@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch jSon</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor"></div>
+
+
+    <script>
+        const alumnos = 
+        [
+            { "nombre": "Ana", "edad": 18, "curso": "1º DAW" },
+            { "nombre": "Pedro", "edad": 20, "curso": "2º DAM" },
+            { "nombre": "María", "edad": 19, "curso": "1º ASIR" }
+        ];
+        const contenedor = document.getElementById("contenedor");
+
+        alumnos.forEach(alumno => {
+            const div = document.createElement("div");
+            div.className = "alumno";
+            div.innerHTML = `<strong>${alumno.nombre}</strong> - Edad: ${alumno.edad}, Curso: ${alumno.curso}`;
+            contenedor.appendChild(div);
+        });
+
+    </script>
+</body>
+
+</html>
