@@ -17,6 +17,9 @@
 
         form {
             margin-bottom: 20px;
+            display: contents;
+            align-items: center;
+            justify-content: center;
         }
 
         ul {
@@ -112,7 +115,7 @@
         // Agregar evento de teclado para eliminar tareas
         const botonEliminar = document.querySelectorAll(".eliminar");
         botonEliminar.forEach(boton => {
-            boton.parentElement.remove();
+            boton.target.parentElement.remove();
         })
             
     </script>

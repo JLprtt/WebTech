@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<a ></a>
+    
+    <script>
+        if (localStorage.getItem('nombre')) {
+            document.body.innerHTML = `<h1>${localStorage.getItem('nombre')}</h1>`;
+        } else {
+            document.body.innerHTML = `<h1>Ve primero a la página de <a href="index.html">índex</a></h1>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+        #wrongUser, #logOut, #welcome {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="login">
+            <h1>Log In</h1>
+            <h2>Rellene sus datos:</h2>
+            <form action="" id="form">
+                User: <input type="text" name="userId" id="userId">
+                <br>
+                Password: <input type="password" name="password" id="password">
+                <br>
+                <button>Send</button>
+            </form>
+        </div>
+        <div id="welcome">
+            <h1 id="welcomeUserId"></h1>
+        </div>
+        <div id="wrongUser">
+            <h2>Nombre de usuario o contraseña incorrectas</h2>
+        </div>
+        <div id="logOut">
+            <button>Log Out</button>
+        </div>
+    </div>
+    
+    <script>
+        const waitedUser = "William";
+        const waitedPassword = "1234567";
+        const form = document.querySelector('#form');
+        const userId = document.querySelector('#userId');
+        const password = document.querySelector('#password');
+        const welcome = document.querySelector('#welcome');
+        const wrongUser = document.querySelector('#wrongUser');
+        const login = document.querySelector('#login');
+        const welcomeUserId = document.querySelector('#welcomeUserId')
+        let introducedUserId;
+
+
+
+        function isLogedIn() {
+            welcomeUserId.innerHTML = `¡Bienvenido ${introducedUserId}!`;
+
+                login.style.display = "none";
+                welcome.style.display = "block";
+                wrongUser.style.display = "none";
+                return;
+        }
+
+        if (localStorage.getItem('user') === waitedUser) {
+            introducedUserId = localStorage.getItem('user');
+            isLogedIn();
+        } else {
+            
+        }
+
+        form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            introducedUserId = userId.value;
+            const introducedPassword = password.value;
+
+            if (introducedUserId === waitedUser && introducedPassword === waitedPassword) {
+                localStorage.setItem('user', introducedUserId)
+                isLogedIn();
+            } else {
+                wrongUser.style.display = "block";
+                welcome.style.display = "none";
+            }
+        })
+    </script>
+</body>
+</html>

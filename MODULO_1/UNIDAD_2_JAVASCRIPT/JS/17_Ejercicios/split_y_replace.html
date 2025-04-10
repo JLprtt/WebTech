@@ -8,9 +8,25 @@
         body, button {
             background-color: black;
             color: red;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            align-content: space-between;
         }
         button {
             border: 1px solid red;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            align-content: space-between;
+            gap: 10px;
+        }
+        hr {
+            width: 100%;
+            border-color: red;
+            margin: 0px;
         }
     </style>
 </head>
@@ -18,19 +34,29 @@
     <!-- Split -->
     <h2>Escriba una frase:</h2>
     <form action="">
-            <label for="frase"></label>
-            <textarea name="frase" id="frase"></textarea><br><br>
-            <button>Enviar</button>
+        <label for="frase"></label>
+        <textarea name="frase" id="frase"></textarea>
+        <button>Enviar</button>
     </form>
 
     <ul>
 
     </ul>
 
-    <!-- Replace -->
-    <h3>Lycoris Raidata</h3>
+    <hr>
 
-    <button onclick="pedir()">Remplazar</button>
+    <!-- Replace -->
+    <h3>Lycoris Raidata: corrige esta frase.</h3>
+
+    <form action="">
+        <label for="palabrasReemplazar">¿Qué palabras desea reemplazar?</label>
+        <textarea name="palabrasReemplazar" id="palabrasReemplazar"></textarea>
+        <br>
+        <label for="palabrasNuevas">¿Por qué palabras desea reemplazarlas?</label>
+        <textarea name="palabrasNuevas" id="palabrasNuevas"></textarea>
+        <button onclick="reemplazar()">Remplazar</button>
+    </form>
+
 
     <script>
         
@@ -51,11 +77,23 @@
                 let elementoLista = document.createElement("li");
                 elementoLista.textContent = palabra;
                 lista.appendChild(elementoLista);
-                });
             });
+        });
 
         //Replace [Maquetarlo en el formulario, splitear los elementos del primer input con ',']
-        function pedir() {
+        const palabrasReemplazar = document.querySelector("palabrasReemplazar");
+        const listaPalabrasReemplazar = [];
+        const palabrasNuevas = document.querySelector("palabrasNuevas");
+        const listaPalabrasNuevas = [];
+
+        function recogerPalabras() {
+            let palabrasReemplazarValue = palabrasReemplazar.value
+            let palabrasNuevasValue = palabrasNuevas.value
+
+            
+        }
+
+        function reemplazar() {
             let palabraReemplazar = prompt("¿Qué palabra quiere reemplazar?");
             let palabraNueva = prompt("¿Por qué palabra quiere remplzarla?");
             let hache3 = document.querySelector("h3");
