@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar el color de fondo a un div</title>
+    <style>
+        body {
+            background-color: rgb(240, 240, 240);
+            
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+
+        }
+
+        #elDiv {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 200px;
+            font-size: 20px;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="boton">Cambia el div de color</button>
+    <div id="elDiv">
+
+    </div>
+    <button id="toColorAleatorio">Pon un color aleatorio en el div</button>
+
+    <script>
+        const boton = document.querySelector("#boton");
+        const elDiv = document.querySelector("#elDiv");
+        const toColorAleatorio = document.querySelector("#toColorAleatorio");
+
+        // Click en el Botón del toggle del background del div. Cambia el color
+        boton.addEventListener("click", function () {
+            if (elDiv.style.backgroundColor === "blue") {
+                elDiv.style.backgroundColor = "red";
+                boton.style.backgroundColor = "blue";
+            } else {
+                elDiv.style.backgroundColor = "blue";
+                boton.style.backgroundColor = "red";
+            }
+        })
+
+        // Click en el botón de color aleatorio. Cambia el color del div a un color aleatorio
+        toColorAleatorio.addEventListener("click", function () {
+           elDiv.style.backgroundColor = getRandomColor();
+           elDiv.innerHTML = "Color: " + getRandomColor();
+        })
+        function getRandomColor() {
+            // Genera un color hexadecimal aleatorio
+            return "#" + Math.floor(Math.random() * 16777215).toString(16);
+        }
+    </script>
+</body>
+
+</html>

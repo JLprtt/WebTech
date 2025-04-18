@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuál es el número mayor?</title>
+    <style>
+        body {
+          font-family: "Segoe UI", sans-serif;
+          background: linear-gradient(to right, #f9f9f9, #e0eafc);
+          padding: 40px;
+          color: #333;
+          text-align: center;
+        }
+      
+        h1 {
+          color: #005288;
+          margin-top: 40px;
+        }
+      
+        form {
+          background-color: #fff;
+          display: inline-block;
+          padding: 20px 30px;
+          margin: 20px auto;
+          border-radius: 12px;
+          box-shadow: 0 0 15px rgba(0, 82, 136, 0.15);
+          text-align: left;
+        }
+      
+        input[type="text"],
+        input[type="number"] {
+          width: 100%;
+          padding: 10px;
+          margin-top: 10px;
+          margin-bottom: 20px;
+          border: 2px solid #ccc;
+          border-radius: 8px;
+          box-sizing: border-box;
+          font-size: 1em;
+        }
+      
+        input[type="submit"] {
+          background-color: #005288;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 8px;
+          font-size: 1em;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+      
+        input[type="submit"]:hover {
+          background-color: #0071b3;
+        }
+      
+        ul {
+          list-style: none;
+          padding: 0;
+          max-width: 500px;
+          margin: 20px auto;
+          text-align: left;
+        }
+      
+        li {
+          background: #fff;
+          margin-bottom: 10px;
+          padding: 12px 18px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 82, 136, 0.1);
+          font-weight: 500;
+          font-size: 1.05em;
+        }
+      </style>
+</head>
+<body>
+    <form action="#">
+        <h1>¿Cuál es el número mayor?</h1>
+        <label for="num1">Número 1:</label>
+        <input type="number" id="num1" required>
+        <br>
+        <label for="num2">Número 2:</label>
+        <input type="number" id="num2" required>
+        <br>
+        <label for="num3">Número 3:</label>
+        <input type="number" id="num3" required>
+        <br>
+        <button type="submit">Enviar</button>
+
+    </form>
+
+    <h2 id="resultado"></h2>
+
+    <script>
+        const form = document.querySelector("form");
+        const resultado = document.querySelector("#resultado");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Evitar el envío del formulario
+            const num1 = parseFloat(document.querySelector("#num1").value);
+            const num2 = parseFloat(document.querySelector("#num2").value);
+            const num3 = parseFloat(document.querySelector("#num3").value);
+            const num4 = parseFloat(document.querySelector("#num4").value);
+            const numMayor = Math.max(num1, num2, num3, num4);
+            let stringHTML = `
+                Has ingresado los números ${num1}, ${num2}, ${num3} y ${num4} y el mayor es el ${numMayor}
+            `;
+            resultado.innerHTML = stringHTML;
+        });
+    </script>
+</body>
+</html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Split y replace</title>
     <style>
-        body, button {
+        body,
+        button {
             background-color: black;
             color: red;
             display: flex;
@@ -13,9 +15,11 @@
             flex-direction: column;
             align-content: space-between;
         }
+
         button {
             border: 1px solid red;
         }
+
         form {
             display: flex;
             flex-direction: column;
@@ -23,6 +27,7 @@
             align-content: space-between;
             gap: 10px;
         }
+
         hr {
             width: 100%;
             border-color: red;
@@ -30,6 +35,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Split -->
     <h2>Escriba una frase:</h2>
@@ -46,60 +52,84 @@
     <hr>
 
     <!-- Replace -->
-    <h3>Lycoris Raidata: corrige esta frase.</h3>
+    <h3 id="fraseCorregir">Lycoris Raidata: corrige esta frase.</h3>
 
-    <form action="">
+    <form action="" id="formularioReemplazo">
         <label for="palabrasReemplazar">¿Qué palabras desea reemplazar?</label>
         <textarea name="palabrasReemplazar" id="palabrasReemplazar"></textarea>
         <br>
         <label for="palabrasNuevas">¿Por qué palabras desea reemplazarlas?</label>
         <textarea name="palabrasNuevas" id="palabrasNuevas"></textarea>
-        <button onclick="reemplazar()">Remplazar</button>
+        <button>Reemplazar</button>
     </form>
 
 
     <script>
-        
+
         //Split
         const form = document.querySelector("form")
         const frase = document.querySelector("#frase")
         const lista = document.querySelector("ul")
-        
+
         form.addEventListener("submit", function (e) {
             e.preventDefault(); //Evita el envío del formulario
             const texto = frase.value;
             const palabras = texto.split(" ");
             const lista = document.querySelector("ul");
-            
+
             lista.innerHTML = ""; //Limpia la lista antes de agregar nuevos elementos
-            
+
             palabras.forEach(palabra => {
                 let elementoLista = document.createElement("li");
                 elementoLista.textContent = palabra;
                 lista.appendChild(elementoLista);
             });
+
+            console.log(palabras)
         });
 
         //Replace [Maquetarlo en el formulario, splitear los elementos del primer input con ',']
-        const palabrasReemplazar = document.querySelector("palabrasReemplazar");
-        const listaPalabrasReemplazar = [];
-        const palabrasNuevas = document.querySelector("palabrasNuevas");
-        const listaPalabrasNuevas = [];
+        const palabrasReemplazar = document.querySelector("#palabrasReemplazar");
+        const palabrasNuevas = document.querySelector("#palabrasNuevas");
+        const formularioReemplazo = document.querySelector("#formularioReemplazo");
+
+        const fraseCorregir = document.querySelector("#fraseCorregir");
+        let fraseCorregirSplit = fraseCorregir.textContent.split(/, |\.|\. |: |\s/);
 
         function recogerPalabras() {
-            let palabrasReemplazarValue = palabrasReemplazar.value
-            let palabrasNuevasValue = palabrasNuevas.value
+            const palabrasReemplazarValue = palabrasReemplazar.value;
+            const palabrasNuevasValue = palabrasNuevas.value;
+            const listaPalabrasReemplazar = palabrasReemplazarValue.split(", ");
+            const listaPalabrasNuevas = palabrasNuevasValue.split(", ");
 
-            
+            const coincidentes = fraseCorregirSplit.filter(e => listaPalabrasReemplazar.includes(e));
+            if (coincidentes == "") {
+                alert("La palabra que ha escrito no coincide con ningúna de las palabras de la frase.")
+            }
+            console.log(coincidentes)
+            //console.log(fraseCorregir);
+            return { coincidentes, listaPalabrasNuevas }; //ayuda chat
         }
 
-        function reemplazar() {
-            let palabraReemplazar = prompt("¿Qué palabra quiere reemplazar?");
-            let palabraNueva = prompt("¿Por qué palabra quiere remplzarla?");
-            let hache3 = document.querySelector("h3");
-            
-            hache3.innerHTML = hache3.innerHTML.replace(palabraReemplazar, palabraNueva);
+        function reemplazarPalabras() {
+            const { coincidentes, listaPalabrasNuevas } = recogerPalabras(); //ayuda chat
+
+            console.log(coincidentes, listaPalabrasNuevas)
+
+            //if (coincidentes.length == listaPalabrasNuevas.length) {
+                for (let i = 0; i < coincidentes.length; i++) {
+                    fraseCorregir.innerHTML = fraseCorregir.innerHTML.replace(coincidentes[i], listaPalabrasNuevas[i]);                }
+            /*} else {
+                alert("El número de palabras a remplazar y el de palabras que desea remplazar deben ser iguales.")
+            }*/
         }
-    </script> 
+
+        formularioReemplazo.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            reemplazarPalabras();
+        });
+    </script>
 </body>
+
 </html>
